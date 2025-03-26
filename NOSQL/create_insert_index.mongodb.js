@@ -1,9 +1,11 @@
 
 use('bookstore');
 
+// ===== collection creation =====
 db.createCollection('book_details');
 db.createCollection('user_activity');
 
+// ===== insetion =====
 db.book_details.insertMany([
   {
     "book_id": 1,
@@ -213,3 +215,8 @@ db.user_activity.insertMany([
     "user_agent": "Mozilla/5.0 (Linux; Android 10)"
   }
 ]);
+
+
+// ===== indxeing =====
+db.book_details.createIndex({ book_id: 1 });
+db.user_activity.createIndex({ user_id: 1, event_type: 1 });
